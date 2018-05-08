@@ -20,4 +20,18 @@ class TasksController extends Controller
     {
         return view('tasks.show', compact('task'));
     }
+
+    public function create()
+    {
+        return view('tasks.create');
+    }
+
+    public function store(Request $request)
+    {
+        // $task = new Task;
+        // $task->body = request('body');
+        // $task->save();
+        Task::create(request(['body']));
+        return redirect('/tasks');
+    }
 }
