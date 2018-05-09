@@ -14,4 +14,13 @@
     @endforeach
     </ul>
 </div>
+
+<form method="post" action="/posts/{{ $post->id }}/comments">
+    {{ csrf_field() }}
+    <textarea name="body"></textarea>
+    <input type="submit">
+</form>
+
+@include('layouts.errors')
+
 @endsection

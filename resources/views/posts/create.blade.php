@@ -14,12 +14,6 @@
     <input type="submit" value="登録">
 </form>
 
-@if (count($errors))
-    <ul>
-    @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-    @endforeach
-    </ul>
-@endif
+@include('layouts.errors')
 
 @endsection
