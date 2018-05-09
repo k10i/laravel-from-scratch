@@ -17,3 +17,8 @@ Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/create', 'TasksController@create');
 Route::post('/tasks', 'TasksController@store');
 Route::get('/tasks/{task}', 'TasksController@show');
+
+Route::get('/', 'PostController@index');
+Route::get('/posts/create', 'PostController@create');
+Route::post('/posts', 'PostController@store');
+Route::get('/posts/{post}', 'PostController@show');
