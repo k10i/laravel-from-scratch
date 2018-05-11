@@ -18,8 +18,19 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
-        return view('posts.index', compact('posts'));
+        $posts = Post::latest()
+            ->filter(request(['month', 'year']))
+            ->get();
+
+        $archives = Post::selectRaw("strftime('%Y', created_at) year, strftime('%m') month, count(*) published")
+            ->groupBy('year', 'month')
+            ->get()
+            ->toArray();
+        ;
+
+        // return $archives;
+
+        return view('posts.index', compact('posts', 'archives'));
     }
 
     /**
