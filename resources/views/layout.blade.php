@@ -9,6 +9,8 @@
 
     @yield('content')
 
+    @include('layouts.sidebar')
+
     @include('layouts.footer')
 </body>
 </html>

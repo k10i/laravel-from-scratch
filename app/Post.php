@@ -33,4 +33,14 @@ class Post extends Model
             $query->whereYear('created_at', $year);
         }
     }
+
+    public static function archives()
+    {
+        return static::selectRaw("strftime('%Y', created_at) year, strftime('%m') month, count(*) published")
+            ->groupBy('year', 'month')
+            ->get()
+            ->toArray();
+        ;
+
+    }
 }
