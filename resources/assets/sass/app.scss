@@ -5,3 +5,10 @@ body {
 ul {
     background: white;
 }
+
+.flash-message {
+    position: absolute;
+    bottom: 20px;
+    rigith: 20px;
+    z-index: 10;
+}

@@ -7,6 +7,12 @@
 <body>
     @include('layouts.nav')
 
+    @if ($flash = session('message'))
+    <div class="flash-message">
+        {{ $flash }}
+    </div>
+    @endif
+
     @yield('content')
 
     @include('layouts.sidebar')
