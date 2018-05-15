@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use App\Repositories\Posts;
 use Illuminate\Http\Request;
 
@@ -17,8 +18,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Posts $posts)
+    public function index(Posts $posts, Tag $tag)
     {
+        return $tag->posts;
         $posts = $posts->all();
         // $posts = (new \App\Repositories\Posts)->all();
         // $posts = Post::latest()
